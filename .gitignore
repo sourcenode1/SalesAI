@@ -1,8 +1,9 @@
-# Data files
+# Data files (raw Excel)
 MainData/
 *.xlsx
-*.csv
-*.csv.gz
+
+# But allow compressed CSVs in data/files/
+!data/files/*.csv.gz
 
 # AI Narration Agent (separate project)
 MainData/ai_narration_agent.py

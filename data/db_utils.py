@@ -7,7 +7,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-BASE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MainData")
+BASE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "files")
 
 MONTH_MAP = {
     "January": 1, "February": 2, "March": 3, "April": 4,
@@ -18,10 +18,10 @@ MONTH_MAP = {
 
 @st.cache_data(ttl=600)
 def _load_sales():
-    path = os.path.join(BASE_PATH, "SalesDataForAIDemo", "SalesDataForAIDemo.xlsx")
+    path = os.path.join(BASE_PATH, "sales_transactions.csv.gz")
     if not os.path.exists(path):
         return pd.DataFrame()
-    df = pd.read_excel(path)
+    df = pd.read_csv(path, compression="gzip")
     df["Document_Date"] = pd.to_datetime(df.get("Document_Date"), errors="coerce")
     df["Net_Sales_Value"] = pd.to_numeric(df.get("Net_Sales_Value", 0), errors="coerce").fillna(0)
     df["Net_Sales_Qty"] = pd.to_numeric(df.get("Net_Sales_Qty", 0), errors="coerce").fillna(0)
@@ -32,18 +32,18 @@ def _load_sales():
 
 @st.cache_data(ttl=600)
 def _load_targets():
-    path = os.path.join(BASE_PATH, "ZENEXTARGETDATFORAI.xlsx")
+    path = os.path.join(BASE_PATH, "targets.csv.gz")
     if not os.path.exists(path):
         return pd.DataFrame()
-    return pd.read_excel(path)
+    return pd.read_csv(path, compression="gzip")
 
 
 @st.cache_data(ttl=600)
 def _load_chemist_visits():
-    path = os.path.join(BASE_PATH, "ChemistVisit", "ChemistVisit.xlsx")
+    path = os.path.join(BASE_PATH, "chemist_visit.csv.gz")
     if not os.path.exists(path):
         return pd.DataFrame()
-    df = pd.read_excel(path)
+    df = pd.read_csv(path, compression="gzip")
     df["POB value"] = pd.to_numeric(df.get("POB value", 0), errors="coerce").fillna(0)
     return df
 
