@@ -1,0 +1,39 @@
+# Data files
+MainData/
+*.xlsx
+*.csv
+*.csv.gz
+
+# AI Narration Agent (separate project)
+MainData/ai_narration_agent.py
+MainData/ai_narration_agent_v2.py
+
+# SalesAgent projects (separate deployment)
+SalesAgent/
+SalesAgentV2/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+venv/
+.venv/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+making.txt
+environment.yml
+*.log
