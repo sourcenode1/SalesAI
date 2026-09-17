@@ -90,7 +90,7 @@ def main():
     initialize_session_state()
 
     st.markdown(
-        "<h1 style='text-align:center;font-size:3.5rem;margin-bottom:0.5rem;color:#ffffff;text-shadow:0 2px 20px rgba(100,150,255,0.4);'>ZeneX SalesAI</h1>",
+        "<h1 style='text-align:center;font-size:3.5rem;margin-bottom:0.5rem;color:#ffffff;text-shadow:0 2px 20px rgba(100,150,255,0.4);'>YYYY SalesAI</h1>",
         unsafe_allow_html=True,
     )
     render_view_toggle()
